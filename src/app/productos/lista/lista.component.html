@@ -1,0 +1,19 @@
+<!--Advanced filter Starts-->
+<section id="advanced">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Lista de Productos</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <input #search type="text" id="projectinput5" class="form-control" placeholder="Buscar" (keydown.enter)="onSearch(search.value)">
+                        <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Advanced filter Ends-->
