@@ -89,13 +89,13 @@ export class AgregarComponent implements OnInit {
       id:1, name:'Bluetooh'
     }, 
     {
-      id:2, name:'Memoria'
+      id:2, name:'Memoria Expandible'
     }, 
     {
       id:3, name:'NFC'
     }, 
     {
-      id:4, name:'GSM'
+      id:4, name:'Redes Moviles', idname: 'redesmoviles', redes: ['GSM','LTE','CDMA']
     }, 
     {
       id:5, name:'Wifi'
@@ -105,6 +105,9 @@ export class AgregarComponent implements OnInit {
     }, 
     {
       id:7, name:'USB'
+    },
+    {
+      id: 8, name: 'Radio FM', idname: 'radiofm'
     }
   ];
 
@@ -125,6 +128,19 @@ export class AgregarComponent implements OnInit {
       id:5, name:'128'
     }
   ];
+
+  OS: any [] = 
+  [
+    {
+      id: 1, name: 'Android'
+    },
+    {
+      id: 2, name: 'IOS'
+    },
+    {
+      id: 3, name: 'Windows'
+    }
+  ]
 
   constructor() { }
 
