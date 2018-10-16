@@ -1,7 +1,7 @@
 <!-- Form actions layout section start -->
 <section id="form-action-layouts">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title" id="from-actions-bottom-right">Registro de productos</h4>
@@ -43,7 +43,7 @@
                                 <h4 class="form-section"><i class="ft-file-text"></i> Detalles del Producto</h4>
 
                                 <div class="row">
-                                    <div class="row form-group col-md-8">
+                                    <div class="row form-group col-md-8 mb-0 mt-0">
                                         <div class="form-group col-12 mb-0 mt-0">
                                             <label for="projectinput5">Company</label>
                                             <input type="text" id="projectinput5" class="form-control" placeholder="Company Name" name="company">
@@ -57,41 +57,53 @@
                                             <input type="text" class="form-control" placeholder="Numero de Serie" name="Serie">
                                         </div>
 
-                                        <div class="row col-md-12">
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-6">
                                                 <label for="capacidad">Capacidad</label>
                                                 <select name="capacidad" class="form-control">
                                                <option *ngFor="let r of Rom" value="r.id"> {{r.name}} GB </option>
                                             </select>
                                             </div>
 
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-6">
                                                 <label>Pantalla</label>
                                                 <input type="text" class="form-control" placeholder="Pantalla" name="pantalla">
                                             </div>
 
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-6">
                                                 <label>Procesador</label>
                                                 <input type="text" class="form-control" placeholder="Procesador" name="procesador">
                                             </div>
-                                        </div>
-                                        <div class="row col-md-12">
-                                            <div class="form-group col-md-4">
-                                                <label for="OS">OS</label>
-                                                <select name="OS" class="form-control">
-                                               <option *ngFor="let o of OS" value="o.id"> {{o.name}}</option>
-                                            </select>
+
+                                            <div class="form-group col-md-6">
+                                              <label for="OS">OS</label>
+                                              <select name="OS" class="form-control">
+                                                <option *ngFor="let o of OS" value="o.id"> {{o.name}}</option>
+                                              </select>
                                             </div>
-                                        </div>
+
                                     </div>
 
                                     <div class="form-group col-md-4">
                                         <label>Carateristicas</label>
-                                        <label *ngFor="let ca of Caracteristicas" class="custom-control custom-checkbox mt-0">
-                                            <input type="checkbox" name="ca.idname" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                {{ ca.name }}
-                                        </label>
+
+                                        <div *ngFor="let ca of Caracteristicas">
+                                            <label class="custom-control custom-checkbox mt-0" [ngClass]="{'ml-0': ca.source}">
+                                                <input *ngIf="!ca.source" type="checkbox" name="ca.idname" value="ca.id" class="custom-control-input">
+                                                    <span *ngIf="!ca.source" class="custom-control-indicator"></span>
+                                                      {{ ca.name }}
+                                                      <span *ngIf="ca.source" (click)="isCollapsed = !isCollapsed"
+                                                      [attr.aria-expanded]="!isCollapsed"><i class="fa fa-angle-down"></i>
+                                                    </span>
+                                            </label>
+
+                                            <div *ngFor="let cac of ca.source" id="collapseExample" [ngbCollapse]="isCollapsed" class="ml-3">
+                                                <label class="custom-control custom-checkbox mt-0">
+                                                  <input type="checkbox" name="cac.idname" value="cac.id" class="custom-control-input">
+                                                      <span class="custom-control-indicator"></span>
+                                                      {{ cac.name }}
+                                                </label>
+                                              </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -210,16 +222,6 @@
                             </button>
                             </div>
                         </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="px-3">
-                        <app-lista></app-lista>
                     </div>
                 </div>
             </div>

@@ -16,21 +16,21 @@ export class AgregarComponent implements OnInit {
     url: URL,
     isHTML5: true
   });
-  
-  MarcasLista = 
+
+  MarcasLista =
   [
     {
-      id: 1, 
+      id: 1,
       name: 'Amazon'
-    }, 
+    },
     {
     id: 2,
     name: 'Acer'
-    }, 
+    },
     {
     id: 3,
     name: 'AT&T'
-    }, 
+    },
     {
     id: 4,
     name: 'DELL'
@@ -39,22 +39,22 @@ export class AgregarComponent implements OnInit {
   Modelos: any[] = [
     {
       id:1, name:'Fire HD 7'
-    }, 
+    },
     {
       id:2, name:'Fire HD 8'
-    }, 
+    },
     {
       id:3, name:'Iconia 7'
-    }, 
+    },
     {
       id:4, name:'Iconia 8'
-    }, 
+    },
     {
       id:5, name:'Vue'
     },
     {
       id:6, name:'Trek HD 8'
-    }, 
+    },
     {
       id:7, name:'Trek HD2 8'
     }
@@ -63,22 +63,22 @@ export class AgregarComponent implements OnInit {
   Categorias: any[] = [
     {
       id:1, name:'Smartphone'
-    }, 
+    },
     {
       id:2, name:'Smart TV'
-    }, 
+    },
     {
       id:3, name:'Tablet'
-    }, 
+    },
     {
       id:4, name:'Monitor'
-    }, 
+    },
     {
       id:5, name:'Mouse'
     },
     {
       id:6, name:'Audifonos'
-    }, 
+    },
     {
       id:7, name:'Bocinas'
     }
@@ -86,25 +86,29 @@ export class AgregarComponent implements OnInit {
 
   Caracteristicas: any[] = [
     {
-      id:1, name:'Bluetooh'
-    }, 
-    {
-      id:2, name:'Memoria Expandible'
-    }, 
-    {
-      id:3, name:'NFC'
-    }, 
-    {
-      id:4, name:'Redes Moviles', idname: 'redesmoviles', redes: ['GSM','LTE','CDMA']
-    }, 
-    {
-      id:5, name:'Wifi'
+      id:1, name:'Bluetooh', idname: 'bluetooh'
     },
     {
-      id:6, name:'Fingerprint'
-    }, 
+      id:2, name:'Memoria Expandible', idname: 'memoriasd'
+    },
     {
-      id:7, name:'USB'
+      id:3, name:'NFC', idname: 'nfc'
+    },
+    {
+      id:4, name:'Redes Moviles', idname: 'redesmoviles', source: [
+        {id: 1, name: 'GSM',idname: 'gsm'},
+        {id: 1, name: 'LTE',idname: 'lte'},
+        {id: 1, name: 'CDMA',idname: 'cdma'}
+      ]
+    },
+    {
+      id:5, name:'Wifi', idname: 'wifi'
+    },
+    {
+      id:6, name:'Fingerprint', idname: 'redesmoviles'
+    },
+    {
+      id:7, name:'USB', idname: 'usb'
     },
     {
       id: 8, name: 'Radio FM', idname: 'radiofm'
@@ -114,22 +118,22 @@ export class AgregarComponent implements OnInit {
   Rom: any[] = [
     {
       id:1, name:'8'
-    }, 
+    },
     {
       id:2, name:'16'
-    }, 
+    },
     {
       id:3, name:'32'
-    }, 
+    },
     {
       id:4, name:'64'
-    }, 
+    },
     {
       id:5, name:'128'
     }
   ];
 
-  OS: any [] = 
+  OS: any [] =
   [
     {
       id: 1, name: 'Android'
@@ -140,7 +144,9 @@ export class AgregarComponent implements OnInit {
     {
       id: 3, name: 'Windows'
     }
-  ]
+  ];
+
+  isCollapsed = false;
 
   constructor() { }
 
@@ -148,7 +154,7 @@ export class AgregarComponent implements OnInit {
     console.log(this.uploader);
   }
 
-  Mostrar() {    
+  Mostrar() {
     this.uploader.queue.forEach(i => {
       console.log(i._file.name + ' ' + i._file.size);
     });

@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from "./shared/shared.module";
 import { ToastModule, ToastOptions } from 'ng2-toastr/ng2-toastr';
@@ -18,7 +18,6 @@ import * as $ from 'jquery';
 import { ProductosModule } from './productos/productos.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormModule } from './forms/forms.module';
 
 
 @NgModule({
@@ -29,7 +28,7 @@ import { FormModule } from './forms/forms.module';
     ],
     imports: [
         BrowserAnimationsModule,
-        FormModule,
+        FormsModule,
         ReactiveFormsModule,
         AppRoutingModule,
         SharedModule,

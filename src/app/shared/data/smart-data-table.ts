@@ -6,12 +6,12 @@ export var settings = {
       filter: false,
     },
     name: {
-      title: 'Full Name',
+      title: 'Nombre',
       filter: false,
     },
     username: {
       title: 'User Name',
-      filter: false,
+     filter: false,
     },
     email: {
       title: 'Email',
@@ -211,7 +211,7 @@ export var alertsettings = {
       title: 'ID',
     },
     name: {
-      title: 'Full Name',
+      title: 'Nombre',
     },
     username: {
       title: 'User Name',

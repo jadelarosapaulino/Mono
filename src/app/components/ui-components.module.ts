@@ -36,7 +36,7 @@ import { TooltipComponent } from './bootstrap/tooltip/tooltip.component';
 import { TypeaheadComponent } from './bootstrap/typeahead/typeahead.component';
 import { NgButtonsComponent } from './bootstrap/ng-buttons/ng-buttons.component';
 import { UploadComponent } from './extra/upload/upload.component';
-import { EditorComponent } from './extra/editor/editor.component';
+//import { EditorComponent } from './extra/editor/editor.component';
 import { DragDropComponent } from './extra/drag-drop/drag-drop.component';
 import { TourComponent } from './extra/tour/tour.component';
 
@@ -81,7 +81,7 @@ import { TourComponent } from './extra/tour/tour.component';
         NgbdModalContent,
         NgButtonsComponent,
         UploadComponent,
-        EditorComponent,
+        //EditorComponent,
         DragDropComponent,
         TourComponent
     ],

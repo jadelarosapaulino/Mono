@@ -7,6 +7,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 // Componentes
 import { AgregarComponent } from './agregar/agregar.component';
 import { ListaComponent } from './lista/lista.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ListaComponent } from './lista/lista.component';
     CommonModule,
     ProductosRouting,
     Ng2SmartTableModule,
-    FileUploadModule
+    FileUploadModule,
+    NgbModule
   ],
   declarations: [
     AgregarComponent,
