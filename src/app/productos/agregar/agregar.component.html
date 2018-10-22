@@ -7,7 +7,7 @@
                     <h4 class="card-title" id="from-actions-bottom-right">Registro de productos</h4>
                 </div>
                 <div class="card-body">
-                    <div class="px-3">
+                    <div class="px-2">
                         <form class="form">
                             <div class="form-body">
                                 <div class="row">
@@ -15,8 +15,7 @@
                                         <label for="projectinput5">Producto No.:</label>
                                         <input type="text" id="projectinput5" class="form-control" placeholder="Producto numero" name="serie">
                                     </div>
-                                </div>
-                                <div class="row">
+
                                     <div class="form-group col-md-4 mb-2">
                                         <label for="categoria">Categoria</label>
                                         <select name="categoria" class="form-control">
@@ -33,12 +32,12 @@
                                             <option *ngFor="let m of MarcasLista" value="m.id"> {{m.name}} </option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-4 mb-2">
+                                    <!--<div class="form-group col-md-4 mb-2">
                                         <label for="modelo">Modelo</label>
                                         <select name="modelo" class="form-control">
                                             <option *ngFor="let mo of Modelos" value="mo.id"> {{mo.name}} </option>
                                         </select>
-                                    </div>
+                                    </div>-->
                                 </div>
                                 <h4 class="form-section"><i class="ft-file-text"></i> Detalles del Producto</h4>
 
@@ -81,6 +80,10 @@
                                               </select>
                                             </div>
 
+                                                <div class="form-group col-12 mb-2">
+                                                    <label for="projectinput9">Comentario</label>
+                                                    <textarea id="projectinput9" rows="5" class="form-control" name="comment" placeholder="Comentario"></textarea>
+                                                </div>
                                     </div>
 
                                     <div class="form-group col-md-4">
@@ -96,7 +99,7 @@
                                                     </span>
                                             </label>
 
-                                            <div *ngFor="let cac of ca.source" id="collapseExample" [ngbCollapse]="isCollapsed" class="ml-3">
+                                            <div *ngFor="let cac of ca.source" id="collapseExample" [ngbCollapse]="!isCollapsed" class="ml-3">
                                                 <label class="custom-control custom-checkbox mt-0">
                                                   <input type="checkbox" name="cac.idname" value="cac.id" class="custom-control-input">
                                                       <span class="custom-control-indicator"></span>
@@ -107,34 +110,8 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="form-group col-md-6 mb-2">
-                                        <label for="projectinput6">Interested in</label>
-                                        <select id="projectinput6" name="interested" class="form-control">
-                                    <option value="none" selected="" disabled="">Interested in</option>
-                                    <option value="design">design</option>
-                                    <option value="development">development</option>
-                                    <option value="illustration">illustration</option>
-                                    <option value="branding">branding</option>
-                                    <option value="video">video</option>
-                                </select>
-                                    </div>
-
-                                    <div class="form-group col-md-6 mb-2">
-                                        <label for="projectinput7">Budget</label>
-                                        <select id="projectinput7" name="budget" class="form-control">
-                                    <option value="0" selected="" disabled="">Budget</option>
-                                    <option value="less than 5000$">less than 5000$</option>
-                                    <option value="5000$ - 10000$">5000$ - 10000$</option>
-                                    <option value="10000$ - 20000$">10000$ - 20000$</option>
-                                    <option value="more than 20000$">more than 20000$</option>
-                                </select>
-                                    </div>
-                                </div>
-
                                 <h4 class="form-section"><i class="ft-camera"></i> Imagenes del Producto</h4>
 
-                                <div class="row">
                                     <!--File Upload Starts-->
                                     <div class="card-block" id="file-upload">
                                         <div class="row">
@@ -146,7 +123,8 @@
                                                     </button>
                                                 </label>
                                             </div>
-
+                                        </div>
+                                        <div class="row">
                                             <div class="col-md-12">
                                                 <table class="table col-md-12">
                                                     <thead>
@@ -161,8 +139,8 @@
                                                     <tbody>
                                                         <tr *ngFor="let item of uploader.queue">
                                                             <td><strong>{{ item?.file?.name }}</strong></td>
-                                                            <td *ngIf="uploader.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
-                                                            <td *ngIf="uploader.isHTML5">
+                                                            <td *ngIf="uploader" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                                                            <td *ngIf="uploader">
                                                                 <div class="progress" style="margin-bottom: 0;">
                                                                     <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
                                                                 </div>
@@ -174,20 +152,20 @@
                                                             </td>
                                                             <td nowrap>
                                                                 <button type="button" class="btn btn-raised btn-success btn-sm" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
-                                                                        <span class="fa fa-upload"></span> Subir
+                                                                        <span class="fa fa-upload"></span>
                                                                 </button>
                                                                 <button type="button" class="btn btn-raised btn-warning btn-sm" (click)="item.cancel()" [disabled]="!item.isUploading">
-                                                                        <span class="fa fa-ban"></span> Cancelar
+                                                                        <span class="fa fa-ban"></span>
                                                                 </button>
                                                                 <button type="button" class="btn btn-raised btn-danger btn-sm" (click)="item.remove()">
-                                                                        <span class="fa fa-trash"></span> Remover
+                                                                        <span class="fa fa-trash"></span>
                                                                 </button>
                                                             </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
 
-                                                <div>
+                                                <div *ngIf="uploader?.queue?.length > 1">
                                                     <p>Progreso:
                                                         <!--<ngb-progressbar type="primary" [value]="uploader.progress"></ngb-progressbar>-->
                                                     </p>
@@ -205,13 +183,6 @@
                                         </div>
                                     </div>
                                     <!--File Upload Ends-->
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-12 mb-2">
-                                        <label for="projectinput9">About Project</label>
-                                        <textarea id="projectinput9" rows="5" class="form-control" name="comment" placeholder="About Project"></textarea>
-                                    </div>
-                                </div>
                             </div>
                             <div class="form-actions right">
                                 <button type="button" class="btn btn-raised btn-warning mr-1">

@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 
@@ -17,7 +18,9 @@ export class AgregarComponent implements OnInit {
     isHTML5: true
   });
 
-  MarcasLista =
+ProductoForm: FormGroup;
+
+  MarcasLista: any[] =
   [
     {
       id: 1,
@@ -97,8 +100,10 @@ export class AgregarComponent implements OnInit {
     {
       id:4, name:'Redes Moviles', idname: 'redesmoviles', source: [
         {id: 1, name: 'GSM',idname: 'gsm'},
-        {id: 1, name: 'LTE',idname: 'lte'},
-        {id: 1, name: 'CDMA',idname: 'cdma'}
+        {id: 2, name: '3G',idname: '3G'},
+        {id: 3, name: '4G',idname: '4G'},
+        {id: 5, name: 'LTE',idname: 'lte'},
+        {id: 6, name: 'CDMA',idname: 'cdma'}
       ]
     },
     {
@@ -154,9 +159,23 @@ export class AgregarComponent implements OnInit {
     console.log(this.uploader);
   }
 
+  CrearFormulario() {
+    this.ProductoForm = new FormGroup({
+      producto_numero: new FormControl(0),
+      marca_numero: new FormControl(0),
+      categoria_numero: new FormControl(0),
+      imei: new FormControl(0, Validators.max(15)),
+      serie: new FormControl(''),
+      capacidad_numero: new FormControl(0),
+      os_numero: new FormControl(0),
+      comentarios: new FormControl(''),
+
+    })
+  }
+
   Mostrar() {
     this.uploader.queue.forEach(i => {
-      console.log(i._file.name + ' ' + i._file.size);
+      console.log(i._file.name + ' ' + i._file.type);
     });
   }
 }
