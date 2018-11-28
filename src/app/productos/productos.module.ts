@@ -8,6 +8,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { AgregarComponent } from './agregar/agregar.component';
 import { ListaComponent } from './lista/lista.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductosRouting,
     Ng2SmartTableModule,
     FileUploadModule,
-    NgbModule
+    NgbModule,
+    NgSelectModule
   ],
   declarations: [
     AgregarComponent,

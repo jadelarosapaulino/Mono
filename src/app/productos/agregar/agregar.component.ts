@@ -169,6 +169,7 @@ ProductoForm: FormGroup;
       capacidad_numero: new FormControl(0),
       os_numero: new FormControl(0),
       comentarios: new FormControl(''),
+      age: new FormControl(''),
 
     })
   }

@@ -17,8 +17,7 @@ import { ToggleFullscreenDirective } from "./directives/toggle-fullscreen.direct
         NavbarComponent,
         SidebarComponent,
         CustomizerComponent,
-        ToggleFullscreenDirective,
-        NgbModule
+        ToggleFullscreenDirective
     ],
     imports: [
         RouterModule,
